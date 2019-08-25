@@ -18,7 +18,8 @@ class Program(object):
             print(glGetProgramInfoLog(self._program))
         else:
             print('Successfully linked')
-        (glDeleteShader(s) for s in shaders)
+        for shader in shaders:
+            glDeleteShader(shader)
 
     def _attach(self, shader_file):
         ''' Attach shader '''

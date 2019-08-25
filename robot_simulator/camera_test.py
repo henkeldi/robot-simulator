@@ -18,7 +18,8 @@ def assert_allclose(actual, desired, rtol=1e-6, atol=1e-6):
 
 class TestCameraTransform(unittest.TestCase):
 
-    def test_viewport_ncd(self):
+    @staticmethod
+    def test_viewport_ncd():
         camera = Camera()
         x0 = 10
         y0 = 20
@@ -48,7 +49,8 @@ class TestCameraTransform(unittest.TestCase):
             actual = T.dot(x)
             assert_allclose(actual, desired)
 
-    def test_screen_ncd(self):
+    @staticmethod
+    def test_screen_ncd():
         camera = Camera()
         x0 = 10
         y0 = 20
@@ -78,7 +80,8 @@ class TestCameraTransform(unittest.TestCase):
             actual = T.dot(x)
             assert_allclose(actual, desired)
 
-    def test_ncd_projection(self):
+    @staticmethod
+    def test_ncd_projection():
         camera = Camera()
         x0 = 10
         y0 = 20

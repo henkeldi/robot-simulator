@@ -24,5 +24,6 @@ class GlScene(object):
         program = Program('shader/shader.vs', 'shader/shader.frag')
         program.use()
 
-    def update(self):
+    @staticmethod
+    def update():
         glDrawArrays(GL_QUAD_STRIP, 0, 4)

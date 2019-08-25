@@ -17,9 +17,11 @@ class Controller(object):
         self._camera.viewport[:] = (0, 0, width, height)
         self._camera.ortho(width, height, -1, 1)
 
+    @staticmethod
     def _key_ballback(self, window, key, scancode, action, mods):
         if key == glfw.KEY_ESCAPE and action == glfw.PRESS:
             glfw.set_window_should_close(window, True)
 
+    @staticmethod
     def _scroll_callback(self, window, xoffset, yoffset):
         print(xoffset, yoffset)
