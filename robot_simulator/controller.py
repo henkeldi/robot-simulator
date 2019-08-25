@@ -6,12 +6,12 @@ class Controller(object):
 
     def __init__(self, window, camera):
         self._camera = camera
-        self._window = window.window
-        glfw.set_window_size_callback(self._window, self._window_size_callback)
-        glfw.set_key_callback(self._window, self._key_ballback)
-        glfw.set_scroll_callback(self._window, self._scroll_callback)
-        width, height = glfw.get_window_size(self._window)
-        self._window_size_callback(self._window, width, height)
+        self._window = window
+        self._window.set_window_size_callback(self._window_size_callback)
+        self._window.set_key_callback(self._key_ballback)
+        self._window.set_scroll_callback(self._scroll_callback)
+        w, h = self._window.get_window_size()
+        self._window_size_callback(None, w, h)
 
     def _window_size_callback(self, window, width, height):
         self._camera.viewport[:] = (0, 0, width, height)

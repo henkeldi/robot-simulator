@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 import glfw
 from OpenGL.GL import *
 import numpy as np
@@ -23,7 +23,9 @@ def main():
 
     camera = Camera()
     Controller(window, camera)
-    MouseNavigationController(window, camera)
+    mouse_controller = MouseNavigationController(camera)
+    window.set_cursor_pos_callback(mouse_controller._cursor_pos_callback)
+    window.set_mouse_button_callback(mouse_controller._mouse_button_callback)
     gl_camera = GlCamera(camera)
     gl_scene = GlScene(vertices)
 
